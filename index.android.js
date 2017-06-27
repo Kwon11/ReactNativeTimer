@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+import TestComponent from './testcomponent.js';
 
 export default class PlexChatProject extends Component {
   render() {
@@ -19,6 +20,7 @@ export default class PlexChatProject extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
+        <TestComponent />
         <Text style={styles.instructions}>
           GET STARTED BABY TIME TO ROCK
         </Text>
