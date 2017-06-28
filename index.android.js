@@ -19,6 +19,7 @@ export default class PlexChatProject extends Component {
     super();
     this.state = {
       inputTime: 0,
+      timers: []
     }
     this.setTime = this.setTime.bind(this);
   }
@@ -39,9 +40,9 @@ export default class PlexChatProject extends Component {
 
         <View style={addTimerStyles.AddTimer}>
           <View style={addTimerStyles.SideSpacer}></View>
-          <TextInput style={addTimerStyles.TimerInput}></TextInput>
+          <TextInput onChangeText={(text) => this.setState({inputTime: text})}style={addTimerStyles.TimerInput} keyboardType='numeric' returnKeyType='done'></TextInput>
           <View style={addTimerStyles.CenterSpacer}></View>
-          <TouchableOpacity onPress={()=> console.log('whatev')} title='Start Timer' style={addTimerStyles.Button}>
+          <TouchableOpacity onPress={()=> console.log(this.state.inputTime)} title='Start Timer' style={addTimerStyles.Button}>
             <Image source={require('./img/addTimerButton.jpg')} style={addTimerStyles.Img} resizeMode='stretch' />
           </TouchableOpacity>
           <View style={addTimerStyles.SideSpacer}></View>
