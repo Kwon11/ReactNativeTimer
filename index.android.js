@@ -5,51 +5,130 @@
  */
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import TestComponent from './testcomponent.js';
+import { AppRegistry, StyleSheet, Text, View, ScrollView, TextInput, TouchableOpacity, Image } from 'react-native';
+// import StaticTopBar from './components/StaticTopBar.jsx';
+// import CustomTimerAdd from './components/CustomTimerAdd.jsx';
+// import TimersView from './components/TimersView.jsx';
+// import EditPreset from './components/EditPreset.jsx';
+// import StaticBottomBar from './components/StaticBottomBar.jsx';
+
 
 export default class PlexChatProject extends Component {
+
+  constructor () {
+    super();
+    this.state = {
+      inputTime: 0,
+    }
+    this.setTime = this.setTime.bind(this);
+  }
+
+  setTime () {
+
+  }
+
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <TestComponent />
-        <Text style={styles.instructions}>
-          GET STARTED BABY TIME TO ROCK
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+      <View style={styles.MainContainer}>
+
+        <View style={styles.Static}>
+          <Text>Knightly Nation</Text>
+          <Text>Timers</Text>
+        </View>
+
+        <View style={addTimerStyles.AddTimer}>
+          <View style={addTimerStyles.SideSpacer}></View>
+          <TextInput style={addTimerStyles.TimerInput}></TextInput>
+          <View style={addTimerStyles.CenterSpacer}></View>
+          <TouchableOpacity onPress={()=> console.log('whatev')} title='Start Timer' style={addTimerStyles.Button}>
+            <Image source={require('./img/addTimerButton.jpg')} style={addTimerStyles.Img} resizeMode='stretch' />
+          </TouchableOpacity>
+          <View style={addTimerStyles.SideSpacer}></View>
+        </View>
+
+        <View style={styles.TimersView}>
+          <ScrollView>
+            <Text>Timers</Text>
+            <Text>Timers</Text>
+            <Text>Timers</Text>
+            <Text>Timers</Text>
+            <Text>Timers</Text>
+            <Text>Timers</Text>
+            <Text>Timers</Text>
+            <Text>Timers</Text>
+            <Text>Timers</Text>
+            <Text>Timers</Text>
+            <Text>Timers</Text>
+          </ScrollView>
+        </View>
+
+        <View style={styles.EditTimersButton}>
+          <Text>Edit Preset Timers</Text>
+        </View>
+
+        <View style={styles.Static}>
+          <Text>Buttons for bottom static bar</Text>
+        </View>
+
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  MainContainer: { //the whole app
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#C6C6C6'
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  Static: { //top and bottom same css
+    flex: 1,
+    backgroundColor: '#FFFFFF',  //white
+    alignContent: 'center'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  TimersView: {
+    flex: 6,
+    backgroundColor: '#4800FF' //blue
   },
+  EditTimersButton: {
+    flex: 1.5,
+    backgroundColor: '#FF0000'  //red  
+  }
 });
+
+const addTimerStyles = StyleSheet.create({
+  AddTimer: {
+    flex: 1.5,
+    flexDirection: 'row',
+    backgroundColor: '#CBCBCB', //grey
+    alignContent: 'center',
+    justifyContent: 'space-around'
+  },
+  TimerInput: {
+    flex: 1,
+    textAlign: 'center',
+    backgroundColor: '#FFFFFF',
+    marginTop: 10,
+    marginBottom: 10
+  },
+  Button: {
+    flex: 1,
+    marginTop: 10,
+    marginBottom: 10,
+
+  },
+  CenterSpacer: {
+    flex: 1
+  },
+  SideSpacer: {
+    flex: .5
+  },
+  Img: {
+    flex: 1,
+    alignSelf: 'stretch',
+    width: undefined,
+    height: undefined
+  }
+})
 
 AppRegistry.registerComponent('PlexChatProject', () => PlexChatProject);
