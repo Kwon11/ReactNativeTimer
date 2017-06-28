@@ -2,6 +2,13 @@ import React, {Component} from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 export default class CustomTimerAdd extends Component {
+  constructor(props) {
+    super(props);
+    this.state ={
+      inputTime: 0,
+      inputName: ''
+    };
+  }
   render () {
     return (
         <View style={addTimerStyles.AddTimer}>
@@ -10,7 +17,7 @@ export default class CustomTimerAdd extends Component {
           <View style={addTimerStyles.CenterSpacer}></View>
           <TextInput onChangeText={(text) => this.setState({inputName: text})} style={addTimerStyles.NameInput} returnKeyType='done'></TextInput>
           <View style={addTimerStyles.CenterSpacer}></View>
-          <TouchableOpacity onPress={()=> console.log(this.state.inputTime)} title='Start Timer' style={addTimerStyles.Button}>
+          <TouchableOpacity onPress={()=> this.props.addTimer(this.state.inputName, this.state.inputTime)} title='Start Timer' style={addTimerStyles.Button}>
             <Image source={require('../img/addTimerButton.jpg')} style={addTimerStyles.Img} resizeMode='stretch' />
           </TouchableOpacity>
           <View style={addTimerStyles.SideSpacer}></View>

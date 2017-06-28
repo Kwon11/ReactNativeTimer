@@ -25,8 +25,21 @@ export default class PlexChatProject extends Component {
       }
     }
     this.countDown = this.countDown.bind(this);
+    this.addTimer = this.addTimer.bind(this);
+    this.deleteTimer = this.deleteTimer.bind(this);
   }
 
+  addTimer(name, time) {
+    let temp = {...this.state.timers};
+    temp[name] = time;
+    this.setState({timers: temp});
+  }
+
+  deleteTimer(name) {
+    let temp = {...this.state.timers};
+    delete temp[name];
+    this.setState({timers: temp})
+  }
 
   countDown(name) {
     if (this.state.timers[name] === 1) {
@@ -47,9 +60,9 @@ export default class PlexChatProject extends Component {
 
         <StaticTopBar />
 
-        <CustomTimerAdd />
+        <CustomTimerAdd addTimer={this.addTimer}/>
 
-        <TimersView countDown={this.countDown} timers={this.state.timers}/>
+        <TimersView deleteTimer={this.deleteTimer} countDown={this.countDown} timers={this.state.timers}/>
 
         <EditPresetsView />
 

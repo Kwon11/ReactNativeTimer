@@ -16,9 +16,11 @@ export default class TimersView extends Component {
   componentWillReceiveProps(props) {
     this.list = [];
     for (var key in props.timers) {
-      this.list.push(
-          <Timer countDown={props.countDown} name={key} time={props.timers[key]} key={key} />
-        )
+      if (props.timers[key]) {
+        this.list.push(
+            <Timer deleteTimer={props.deleteTimer} countDown={props.countDown} name={key} time={props.timers[key]} key={key} />
+          )
+      }
     }
   }
 
