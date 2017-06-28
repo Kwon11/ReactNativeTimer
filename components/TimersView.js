@@ -1,40 +1,25 @@
 import React, {Component} from 'react';
 import { View, ScrollView, StyleSheet, Text } from 'react-native';
-
-class Timer extends Component {
-  constructor(props) {
-    super();
-    this.state = {
-      time: props.time,
-      name: props.name
-    };
-    this.countDown = this.countDown.bind(this);
-    this.countDown();
-  }
-
-  countDown() {
-    if (this.state.time === 0) {
-      this.setState({time: 'DONE'})
-    } else {
-      this.setState({time: (this.state.time - 1)});
-      setTimeout(() => this.countDown(), 1000);
-    }
-  }
-  
-  render () {
-    return (
-        <View>
-          <Text>{this.state.name}</Text>
-          <Text>{this.state.time}</Text>
-        </View>
-      )
-  }
-}
+import Timer from './Timer.js';
 
 export default class TimersView extends Component {
   constructor(props) {
     super();
-    this.list = [<Timer name={'timer1'} time={100} key='lol' />]
+    this.list = [];
+    for (var key in props.timers) {
+      this.list.push(
+          <Timer countDown={props.countDown} name={key} time={props.timers[key]} key={key} />
+        )
+    }
+  }
+
+  componentWillReceiveProps(props) {
+    this.list = [];
+    for (var key in props.timers) {
+      this.list.push(
+          <Timer countDown={props.countDown} name={key} time={props.timers[key]} key={key} />
+        )
+    }
   }
 
   render () {
@@ -54,3 +39,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#4800FF' //blue
   }
 })
+
+//passdown countDown, name, and value
+//props.timers = {
+  //timer1: 10
+//}

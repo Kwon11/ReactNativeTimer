@@ -17,10 +17,29 @@ export default class PlexChatProject extends Component {
     super();
     this.state = {
       inputTime: 0,
-      inputName: ''
+      inputName: '',
+      timers: {
+        timer1: 10,
+        timer2: 5,
+        timer3: 13
+      }
     }
+    this.countDown = this.countDown.bind(this);
   }
 
+
+  countDown(name) {
+    if (this.state.timers[name] === 1) {
+      let temp = {...this.state.timers}
+      temp[name] = 'DONE';
+      this.setState({timers: temp})
+    } else {
+      let temp = {...this.state.timers}
+      temp[name] = temp[name] - 1;
+      this.setState({timers: temp})
+      setTimeout(() => this.countDown(name), 1000);
+    }
+  }
 
   render() {
     return (
@@ -30,7 +49,7 @@ export default class PlexChatProject extends Component {
 
         <CustomTimerAdd />
 
-        <TimersView />
+        <TimersView countDown={this.countDown} timers={this.state.timers}/>
 
         <EditPresetsView />
 
