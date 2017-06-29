@@ -10,9 +10,9 @@ This is a timer app for keeping track of various in-game clocks, such as respawn
 How much time
 -------------
  *  **(3 hours) Set Up:** Pretty painful. Expo would not work on the library wifi, so I had to download the Android SDK to get a "Hello World."
- *  **(2 hours) Composite Components:** I still haven't figured out the build path, and how to get it to include .jsx. It isn't necessary, but it ate a lot of my time to find out that .js works just fine.
+ *  **(2 hours) Composite Components:** I still haven't figured out where to set the build path, and how to get it to include .jsx. It isn't necessary, but it ate a lot of my time to find out that .js works just fine.
  *  **(1 hours) Design/Scaffolding:** What I would consider my "start"
- *  **(6 hours) Create!:** The challenges were in keeping track of timers without Redux, such that the <Timers /> read from the root component state. I could not think of a way to have the timers keep their own state without resetting them on a new timer. I figured if the main component had to keep track of the timers anyway I should set up the Timers to read from that state.
+ *  **(6 hours) Create!:** The most interesting challenge was in keeping track of timers without Redux, such that the Timers read from the root component state. I could not think of a way to have the timers keep their own state without resetting them on a new timer add. I figured if the main component had to keep track of the timers anyway I should set up the Timers to read from that state.
 
 Future
 ------
