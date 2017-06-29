@@ -7,6 +7,8 @@ Summary
 
 This is a timer app for keeping track of various in-game clocks, such as respawns, party quests, and daily rewards. It allows multiple timers with custom labels.
 
+For development purposes I focused on Android. I am not entirely sure how many tools are available for viewing Native apps, but with the android SDK and react-native cli it should run with "npm install" and "react-native run-android".
+
 How much time
 -------------
  *  **(3 hours) Set Up:** Pretty painful. Expo would not work on the library wifi, so I had to download the Android SDK to get a "Hello World."
