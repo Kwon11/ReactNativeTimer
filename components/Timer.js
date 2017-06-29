@@ -13,11 +13,13 @@ export default class Timer extends Component {
   render () {
     return (
         <View style={styles.Timer}>
+          <View style={styles.Spacer}></View>
           <View style={styles.TimerContainer}>
             <Text style={styles.TimerName}>{this.props.name}</Text>
             <Text style={styles.TimerValue}>{this.props.time}</Text>
           </View>
             <Button onPress={()=> this.props.deleteTimer(this.props.name)} title='Remove' style={styles.Button} />
+          <View style={styles.Spacer}></View>
         </View>
       )
   }
@@ -26,6 +28,9 @@ export default class Timer extends Component {
 const styles = StyleSheet.create({
   Timer: {
     flexDirection: 'row',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#CBCBCB'
   },
   TimerContainer: {
     flex: 3
@@ -39,6 +44,9 @@ const styles = StyleSheet.create({
   },
   Button: {
     flex: 1
+  },
+  Spacer: {
+    flex: .25
   }
 })
 

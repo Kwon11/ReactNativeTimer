@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Button, StyleSheet } from 'react-native';
 
 export default class EditPreset extends Component {
   render () {
     return (
         <View style={styles.EditTimersButton}>
-          <Text>Edit Preset Timers</Text>
+          <Button title="Edit Presets" onPress={() => console.log()} />
         </View>
       );
   }
@@ -13,7 +13,7 @@ export default class EditPreset extends Component {
 
 const styles = StyleSheet.create({
   EditTimersButton: {
-    flex: 1.5,
-    backgroundColor: '#FF0000'  //red  
+    flex: .5,
+    backgroundColor: '#CBCBCB'  //red  
   }
 })

@@ -38,7 +38,7 @@ export default class TimersView extends Component {
 const styles = StyleSheet.create({
   TimersView: {
     flex: 6,
-    backgroundColor: '#4800FF' //blue
+    backgroundColor: 'white' //blue
   }
 })
 

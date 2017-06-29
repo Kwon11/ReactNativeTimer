@@ -19,9 +19,11 @@ export default class PlexChatProject extends Component {
       inputTime: 0,
       inputName: '',
       timers: {
-        timer1: 10,
-        timer2: 5,
-        timer3: 13
+        'Elixer Timer': 300,
+        'Creep Respawn': 80,
+        'Treasure Reset': 30,
+        'Gold Respawn': 90,
+        'PQ': 600
       }
     }
     this.countDown = this.countDown.bind(this);
@@ -42,7 +44,7 @@ export default class PlexChatProject extends Component {
   }
 
   countDown(name) {
-    if (this.state.timers[name] === 1) {
+    if (this.state.timers[name] === 1 || this.state.timers[name] === 0) {
       let temp = {...this.state.timers}
       temp[name] = 'DONE';
       this.setState({timers: temp})

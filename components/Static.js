@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 export class StaticTopBar extends Component {
   constructor () {
@@ -9,8 +9,7 @@ export class StaticTopBar extends Component {
   render () {
     return (
         <View style={styles.Static}>
-          <Text style={styles.TextCenter}>Knightly Nation</Text>
-          <Text style={styles.TextCenter}>Timers</Text>
+          <Image source={require('../img/topBar.jpg')} resizeMode='stretch' />
         </View>
       );
   }
@@ -24,7 +23,7 @@ export class StaticBottomBar extends Component {
   render () {
     return (
         <View style={styles.Static}>
-          <Text>Buttons for bottom static bar</Text>
+          <Image source={require('../img/bottomBar.jpg')} resizeMode='stretch' />
         </View>
       );
   }
@@ -37,6 +36,8 @@ const styles = StyleSheet.create({
     alignContent: 'center'
   },
   TextCenter: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 20
   }
 })
