@@ -20,6 +20,8 @@ Future
 ------
  * I want to set up the EditPreset view as I originally intended. That button will lead to a new page where users could see and set their saved timers, and have it show up on the main view from the start
  * Pause, reset, and set-to-repeat options for each timer
+ * onLongPress of the time-display => edit the timer (auto pause timer) and then resume timer
+ * Allow timer-chains when creating new timers (i.e "Respawn timer starts after pq timer")
 
 Much later future
 -----------------
